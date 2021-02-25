@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shiori</title>
+    <title>SHIORI</title>
     <%= csrf_meta_tags %>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
@@ -23,14 +23,16 @@
     <% end %>
 
 
-    <nav class="navbar is-link">
+    <nav class="navbar is-success">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class="title is-4" style=font-family: "Gill Sans", sans-serif;>shiori</h1>
+          <h1 class="title"><%= link_to image_tag("logo.png", alt: "SHIORI logo", style: "height: 25px;"),root_path %></h1>
         <% end %>
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
         </div>
       </div>
+
+
 
       <% if user_signed_in? %>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
@@ -39,10 +41,13 @@
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <%= link_to "マイページ", user_path(current_user), class: "button is-small is-info" %>
+                  <%= link_to "ユーザー一覧", users_path, class: "button is-small is-success" %>
                 </p>
                 <p class="control">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-small is-info" %>
+                  <%= link_to "マイページ", user_path(current_user), class: "button is-small is-success" %>
+                </p>
+                <p class="control">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-small is-success" %>
                 </p>
               </div>
             </div>
@@ -54,15 +59,18 @@
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <%= link_to "ログイン", new_user_session_path, class: "button is-small is-info" %>
+                  <%= link_to "ユーザー一覧", users_path, class: "button is-small is-success" %>
                 </p>
-                <p class="control">
-                  <%= link_to "新規登録", new_user_registration_path, class: "button is-small is-info" %>
-                </p>
+                  <p class="control">
+                    <%= link_to "ログイン", new_user_session_path, class: "button is-small is-success" %>
+                  </p>
+                  <p class="control">
+                    <%= link_to "新規登録", new_user_registration_path, class: "button is-small is-success" %>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       <% end %>
 
     </nav>
