@@ -47,3 +47,57 @@
     </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @user.posts.each do |post| %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-2by2">
+                <%= link_to post_path(post) do %>
+                  <%= attachment_image_tag post, :image, fallback: "no-image.png" %>
+
+                  <div class="card-content">
+                      <div class="media-content">
+                        <p class="title is-4"><%= post.category %>／<%= post.title %></p>
+                        <p class="title is-4">進捗 <%= post.progress %>％</p>
+                    </div>
+                  </div>
+
+                <% end %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <%= link_to post_path(post), class: "panel-block" do %>
+                    <span class="panel-icon">
+                      <i class="fas fa-book" aria-hidden="true"></i>
+                    </span>
+                    SHIORIを見る
+                  <% end %>
+                  <% if @user.id == current_user.id %>
+                    <%= link_to edit_post_path(post), class: "panel-block" do %>
+                      <span class="panel-icon">
+                        <i class="fas fa-edit"></i>
+                      </span>
+                      SHIORIを編集する
+                    <% end %>
+                    <%= link_to post_path(post), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
+                      <span class="panel-icon">
+                        <i class="fas fa-trash"></i>
+                      </span>
+                      SHIORIを削除する
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

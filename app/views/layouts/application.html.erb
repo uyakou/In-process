@@ -32,10 +32,14 @@
         </div>
       </div>
 
-
-
       <% if user_signed_in? %>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-item">
+            <%= link_to "SHIORI一覧", posts_path, class: "button is-small is-success" %>
+          </div>
+          <div class="navbar-item">
+            <%= link_to "SHIORIを挟む", new_post_path, class: "button is-small is-success" %>
+          </div>
 
           <div class="navbar-end">
             <div class="navbar-item">
@@ -54,6 +58,12 @@
           </div>
         </div>
       <% else %>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-item">
+            <%= link_to "SHIORI一覧", posts_path, class: "button is-small is-success" %>
+          </div>
+
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-end">
             <div class="navbar-item">

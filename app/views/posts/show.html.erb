@@ -1,0 +1,65 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        SHOIRI 詳細
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-4">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-2by2">
+              <%= attachment_image_tag @post, :image, fallback: "no-image.png" %>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4"><%= @post.category %>／<%= @post.title %></p>
+                <p class="title is-4">進捗 <%= @post.progress %>％</p>
+              </div>
+            </div>
+            <div class="content">
+              <table class="table is-narrow">
+                <tr>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td><%= simple_format @post.comment %></td>
+                </tr>
+              </table>
+              <% if @post.user.id == current_user.id %>
+                <%= link_to "編集画面へ", edit_post_path(@post), class: "button is-success" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-4">
+        <article class="panel is-success"">
+          <p class="panel-heading">
+            <%= @post.user.username %> のSHIORI
+          </p>
+          <div class="panel-block">
+            <p class="control">
+              <%= @post.user.profile %>
+            </p>
+          </div>
+          <%= link_to user_path(@post.user), class: "panel-block" do %>
+            <span class="panel-icon">
+              <i class="fas fa-user" aria-hidden="true"></i>
+            </span>
+            <%= @post.user.username %> さんのページへ
+          <% end %>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

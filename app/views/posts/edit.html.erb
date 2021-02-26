@@ -1,0 +1,58 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        SHIORIの編集
+      </h1>
+    </div>
+  </div>
+</section>
+
+<% if @post.errors.any? %>
+  <div class="notification is-danger">
+    <h2><%= pluralize(@post.errors.count, "error") %>は保存できませんでした。</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_for @post do |f| %>
+          <div class="field">
+            <%= f.label :title, "タイトル", class: "label" %>
+            <%= f.text_field :title, class: "input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :category, "種類", class: "label" %>
+            <%= f.text_field :category, class: "input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :progress, "進捗（％）", class: "label" %>
+            <%= f.text_field :progress, class: "input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :comment, "コメント", class: "label" %>
+            <%= f.text_area :comment, class: "textarea" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :image, "写真", class: "label" %>
+            <%= f.attachment_field :image, class: "input" %>
+          </div>
+
+          <%= f.submit '編集する', class: "button is-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
