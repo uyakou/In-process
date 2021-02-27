@@ -16,4 +16,11 @@ module Shiori
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Tokyo'
   end
+
+module AssociationTutorial
+  class Application < Rails::Application
+    # 以下を追加すれば日本語に
+   config.i18n.default_locale = :ja
+  end
+end
 end
