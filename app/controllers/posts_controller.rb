@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+
   def index
     @posts = Post.all
   end
@@ -13,19 +15,28 @@ class PostsController < ApplicationController
 
   def edit
    @post = Post.find(params[:id])
+    if @post.user != current_user
+    redirect_to posts_path alert: "不正なアクセスです。一覧画面に戻ります。"
+    end
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to post_path(@post)
+    if  @post.save
+      redirect_to post_path(@post), notice: "栞を挟みました。"
+    else
+      render :new
+    end
   end
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post)
+    if  @post.update(post_params)
+      redirect_to post_path(@post), notice: "栞を編集しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy

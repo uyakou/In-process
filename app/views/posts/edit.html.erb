@@ -2,7 +2,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        SHIORIの編集
+        栞の編集
       </h1>
     </div>
   </div>
@@ -10,12 +10,7 @@
 
 <% if @post.errors.any? %>
   <div class="notification is-danger">
-    <h2><%= pluralize(@post.errors.count, "error") %>は保存できませんでした。</h2>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
+    <h2>設定内容に不備があります。</h2>
   </div>
 <% end %>
 
@@ -35,7 +30,7 @@
           </div>
 
           <div class="field">
-            <%= f.label :progress, "進捗（％）", class: "label" %>
+            <%= f.label :progress, "進捗％（3桁）", class: "label" %>
             <%= f.text_field :progress, class: "input" %>
           </div>
 
@@ -55,4 +50,3 @@
     </div>
   </div>
 </section>
-

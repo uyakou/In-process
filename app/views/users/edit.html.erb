@@ -11,12 +11,7 @@
 
 <% if @user.errors.any? %>
   <div class="notification is-danger">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
+    <h2>設定内容に不備があります。</h2>
   </div>
 <% end %>
 
