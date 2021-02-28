@@ -15,37 +15,31 @@
         <div class="column is-4">
           <div class="card">
             <div class="card-image">
-              <figure class="image is-2by2">
-                <%= link_to post_path(post) do %>
-                  <%= attachment_image_tag post, :image, fallback: "no-image.png" %>
-                <% end %>
+              <figure class="image is-4by3">
+                  <%= link_to post_path(post) do %>
+                    <%= attachment_image_tag post, :image, fallback: "no-image.png", class: "fit_image" %>
+                  <% end %>
               </figure>
             </div>
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
                   <figure class="image is-48x48">
-                    <%= attachment_image_tag post.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                    <%= attachment_image_tag post.user, :profile_image, fallback: "no-image_prof.png", class: "profile_image" %>
                   </figure>
                 </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4"><%= post.category %>／<%= post.title %></p>
-                      <p class="title is-4">進捗 <%= post.progress %>％</p>
-                    </div>
-                  </div>
-                  <tr>
-                    <th></th>
-                  </tr>
-                  <div class="media-content">
-                    <div class="title"><%=link_to post.user.username, user_path(post.user) %></div>
-                  </div>
+                <div class="media-content">
+                  <div class="title"><%=link_to post.user.username, user_path(post.user) %></div>
                 </div>
+              </div>
+
+              <div class="content">
+                <p class="title is-4">進捗 <%= post.progress %>％</p>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
-  </section>
+  </div>
+</section>

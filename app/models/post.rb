@@ -8,7 +8,6 @@ class Post < ApplicationRecord
     validates :progress
   end
 
-  validates :progress, length: { is: 3 }
   validates :progress, numericality: true
 
 end

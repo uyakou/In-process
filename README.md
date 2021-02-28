@@ -1,24 +1,10 @@
-# README
+# SHIORI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
+Content Abandonment Prevention App
 
-Things you may want to cover:
+## Description
+Created for people like myself who often leave books, games and other content unfinished. You can view the progress of each content in a list.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Author
+uyakousec@yahoo.co.jp 

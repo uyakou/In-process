@@ -26,7 +26,7 @@
     <nav class="navbar is-dark">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class="title"><%= link_to image_tag("logo.png", alt: "SHIORI logo", style: "height: 25px;"),root_path %></h1>
+          <h1 class="title"><%= link_to image_tag("logo.png", alt: "SHIORI logo", style: "height: 40px;"),root_path %></h1>
         <% end %>
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
         </div>
@@ -44,6 +44,7 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
+
                 <p class="control">
                   <%= link_to "ユーザー一覧", users_path, class: "button is-small is-dark" %>
                 </p>
@@ -63,11 +64,14 @@
           <div class="navbar-item">
             <%= link_to "栞一覧", posts_path, class: "button is-small is-dark" %>
           </div>
+        </div>
 
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
+
+
                 <p class="control">
                   <%= link_to "ユーザー一覧", users_path, class: "button is-small is-dark" %>
                 </p>
