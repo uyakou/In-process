@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :users
-  resources :posts
+  resources :posts  do
+    resources :likes, only: [:create, :destroy]
+  end
+
+  root 'posts#index'
 
 end

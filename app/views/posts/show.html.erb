@@ -23,6 +23,12 @@
               <div class="media-content">
                 <p class="title is-4"><%= @post.category %>／<%= @post.title %></p>
                 <p class="title is-4">進捗 <%= @post.progress %>％</p>
+                <p class="title is-5">見られている数: <%= @post.likes.count %></p>
+                <% if current_user.already_liked?(@post) %>
+                  <%= button_to '監視をやめる', post_like_path(@post), method: :delete %>
+                <% else %>
+                  <%= button_to '見てるぞ', post_likes_path(@post) %>
+                <% end %>
               </div>
             </div>
             <div class="content">
