@@ -9,5 +9,7 @@ class Post < ApplicationRecord
   end
 
   validates :progress, numericality: true
+  validates :progress, numericality: { greater_than_or_equal_to: 0 }
+  validates :progress, numericality: { less_than_or_equal_to: 100 }
 
 end
