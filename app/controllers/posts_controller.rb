@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
+  PER = 6
+
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(PER)
   end
 
   def show
@@ -43,7 +45,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to post_path
+    redirect_to posts_path, notice: "栞を削除しました。"
   end
   
   private

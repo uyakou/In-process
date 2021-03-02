@@ -21,10 +21,6 @@ group :development do
   gem 'spring-watcher-listen', '2.0.1'
 end
 
-group :production do
-  gem 'pg', '0.20.0'
-end
-
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
@@ -33,3 +29,4 @@ gem 'devise-i18n-views'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "bulma-rails"
+gem 'kaminari', '~> 0.17.0'

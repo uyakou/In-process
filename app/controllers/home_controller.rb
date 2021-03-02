@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+    user = User.find_or_create_by!(email: 'welcome@guest.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
