@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.string :title
       t.text :comment
-      t.string :image_id
       t.string :category
       t.integer :progress
 

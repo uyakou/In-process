@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.create params.require(:post).permit(:title, :category, :progress, :comment, :image)
     @post.user_id = current_user.id
     if  @post.save
       redirect_to post_path(@post), notice: "栞を挟みました。"

@@ -15,7 +15,11 @@
         <div class="card">
           <div class="card-image">
             <figure class="image is-2by2">
-              <%= attachment_image_tag @post, :image, fallback: "no-image.png" %>
+              <% if @post.image.attached? %>
+                <%= image_tag @post.image, class: "fit_image" %>
+              <% else %>
+                <%= image_tag "no-image.png", class: "fit_image" %>
+              <% end %>
             </figure>
           </div>
           <div class="card-content">
